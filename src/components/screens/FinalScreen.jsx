@@ -70,7 +70,7 @@ export default function FinalScreen() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 2, duration: 0.8 }}
                 >
-                    Gussa mat hona... mazak kar raha hu 😭😂
+                    🤭Gussa mat hona... mazak kar raha hu 🙇🏼🙇🏼
                 </motion.p>
 
             </div>
