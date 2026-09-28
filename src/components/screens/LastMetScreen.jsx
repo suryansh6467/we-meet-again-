@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import Button from "../Button";
 
-const lastMetDate = "2025-01-01";
+const lastMetDate = "2025-31-12";
 
 function LastMetScreen({ onNext }) {
     const [days, setDays] = useState(0);
