@@ -187,7 +187,7 @@ export default function LetterScreen({ onNext }) {
         </span>
 
         <h2 className="text-3xl md:text-5xl font-bold text-slate-700">
-          Capture This Moment
+          Its You Cutiee
         </h2>
 
         <p className="text-lg md:text-xl font-hand text-rose-500 mt-1">
