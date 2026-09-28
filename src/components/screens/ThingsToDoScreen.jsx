@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Camera, Heart } from "lucide-react";
 import Button from "../Button";
@@ -21,20 +24,34 @@ const thingsToDo = [
     }
 ];
 
-function ThingsToDoScreen({ onNext, onPlayMusic }) {
+function ThingsToDoScreen({ onNext }) {
+    const audioRef = useRef(null);
 
-    const handleNext = () => {
-        // Button click par music start
-        if (typeof onPlayMusic === "function") {
-            onPlayMusic();
+    const handleNext = async () => {
+        try {
+            if (!audioRef.current) return;
+
+            audioRef.current.volume = 0.8;
+            audioRef.current.currentTime = 0;
+
+            await audioRef.current.play();
+
+            onNext();
+        } catch (error) {
+            console.log("Song play error:", error);
+            onNext();
         }
-
-        // Next screen
-        onNext();
     };
 
     return (
         <div className="flex flex-col items-center h-full w-full relative">
+
+            {/* SONG */}
+            <audio
+                ref={audioRef}
+                preload="auto"
+                src="/audio/bg.mp3"
+            />
 
             <motion.div
                 className="text-center z-10 mt-6 md:mt-8 mb-6 shrink-0"
@@ -68,7 +85,6 @@ function ThingsToDoScreen({ onNext, onPlayMusic }) {
                                 whileHover={{ scale: 1.02 }}
                                 className="relative flex h-28 md:h-32 bg-white rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.04)] overflow-hidden border border-slate-200 w-full"
                             >
-
                                 <div className="w-24 md:w-28 bg-rose-100 flex flex-col items-center justify-center border-r border-slate-200 shrink-0">
 
                                     <div className="bg-white p-2.5 rounded-full shadow-sm mb-1.5">
@@ -95,7 +111,6 @@ function ThingsToDoScreen({ onNext, onPlayMusic }) {
                                     </p>
 
                                 </div>
-
                             </motion.div>
                         </motion.div>
                     ))}
