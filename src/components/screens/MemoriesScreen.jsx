@@ -43,7 +43,7 @@ function MemoriesScreen({ onNext }) {
                         transition={{ duration: 0.3 }}
                         className="text-xl md:text-2xl font-hand text-purple-400"
                     >
-                        Kitni sundar ho tum ♡
+                        ♡Kitni sundar ho tum ohh Sorry Sorry aap Malkin♡
                     </motion.p>
                 </AnimatePresence>
             </motion.div>
