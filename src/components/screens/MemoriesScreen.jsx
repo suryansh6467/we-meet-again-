@@ -88,7 +88,7 @@ function MemoriesScreen({ onNext }) {
             </div>
 
             <motion.div className="shrink-0 z-10 mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
-                <Button onClick={onNext} text="A Letter For You" animateIcon={false} icon={<Mail size={18} />} />
+                <Button onClick={onNext} text="Now Open My Heart" animateIcon={false} icon={<Mail size={18} />} />
             </motion.div>
         </div>
     );
