@@ -127,7 +127,7 @@ function MemoriesScreen({ onNext }) {
                     onClick={onNext}
                     text="♡Now Open My Heart♡"
                     animateIcon={false}
-                    icon={<Mail size={18} />}
+                    //icon={<Mail size={18} />}
                 />
             </motion.div>
 
