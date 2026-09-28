@@ -24,8 +24,8 @@ const thingsToDo = [
 function ThingsToDoScreen({ onNext, onPlayMusic }) {
 
     const handleNext = () => {
-        // Button click par song play
-        if (onPlayMusic) {
+        // Button click par music start
+        if (typeof onPlayMusic === "function") {
             onPlayMusic();
         }
 
