@@ -21,7 +21,18 @@ const thingsToDo = [
     }
 ];
 
-function ThingsToDoScreen({ onNext }) {
+function ThingsToDoScreen({ onNext, onPlayMusic }) {
+
+    const handleNext = () => {
+        // Button click par song play
+        if (onPlayMusic) {
+            onPlayMusic();
+        }
+
+        // Next screen
+        onNext();
+    };
+
     return (
         <div className="flex flex-col items-center h-full w-full relative">
 
@@ -55,7 +66,7 @@ function ThingsToDoScreen({ onNext }) {
                         >
                             <motion.div
                                 whileHover={{ scale: 1.02 }}
-                                className="relative flex h-28 md:h-32 bg-white rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.04)] overflow-hidden group border border-slate-200 w-full"
+                                className="relative flex h-28 md:h-32 bg-white rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.04)] overflow-hidden border border-slate-200 w-full"
                             >
 
                                 <div className="w-24 md:w-28 bg-rose-100 flex flex-col items-center justify-center border-r border-slate-200 shrink-0">
@@ -73,13 +84,13 @@ function ThingsToDoScreen({ onNext }) {
 
                                 </div>
 
-                                <div className="flex-1 p-4 pl-5 md:pl-6 flex flex-col justify-center bg-white relative overflow-hidden">
+                                <div className="flex-1 p-4 pl-5 md:pl-6 flex flex-col justify-center bg-white">
 
-                                    <h4 className="text-lg md:text-xl font-bold text-slate-700 leading-tight pr-8">
+                                    <h4 className="text-lg md:text-xl font-bold text-slate-700 leading-tight">
                                         {item.title}
                                     </h4>
 
-                                    <p className="text-sm md:text-base font-hand text-slate-500 mt-1 leading-snug pr-8">
+                                    <p className="text-sm md:text-base font-hand text-slate-500 mt-1 leading-snug">
                                         {item.desc}
                                     </p>
 
@@ -98,9 +109,9 @@ function ThingsToDoScreen({ onNext }) {
                 transition={{ delay: 1.2 }}
             >
                 <Button
-                    onClick={onNext}
+                    onClick={handleNext}
                     animateIcon={false}
-                    text="Now See YoutSelf"
+                    text="Now See Yourself"
                     icon={<Camera size={18} />}
                 />
             </motion.div>
