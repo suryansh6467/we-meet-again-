@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail } from 'lucide-react';
 import Button from '../Button';
 
 const memories = [
     "/images/1.avif",
     "/images/2.avif",
     "/images/3.avif",
- //   "/images/4.avif",
+    // "/images/4.avif",
 ];
 
 function MemoriesScreen({ onNext }) {
@@ -48,11 +47,12 @@ function MemoriesScreen({ onNext }) {
                 </AnimatePresence>
             </motion.div>
 
-            {/* Stacked Polaroids */}
-            <div className="relative w-full max-w-100 h-102.5 md:h-112.5 my-4 flex items-center justify-center">
+            {/* Photos */}
+            <div className="relative w-full max-w-[400px] h-[410px] md:h-[450px] my-4 flex items-center justify-center">
 
                 <AnimatePresence>
                     {cards.map((photo, index) => {
+
                         if (index > 2) return null;
 
                         const isTop = index === 0;
@@ -86,11 +86,15 @@ function MemoriesScreen({ onNext }) {
                                     type: "spring",
                                     damping: 18
                                 }}
-                                className={`absolute left-1/2 -translate-x-1/2 inset-0 top-8 w-67.5 h-80 md:w-75 md:h-87.5 bg-[#fafafa] p-4 pb-16 rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-pink-50 ${
-                                    isTop && !isLastCard
-                                        ? 'cursor-pointer'
-                                        : ''
-                                }`}
+                                className={`absolute left-1/2 -translate-x-1/2 top-8
+                                    w-[270px] h-[320px]
+                                    md:w-[300px] md:h-[350px]
+                                    bg-[#fafafa] p-4 pb-16
+                                    rounded-xl
+                                    shadow-[0_15px_35px_rgba(0,0,0,0.08)]
+                                    border border-pink-50
+                                    ${isTop && !isLastCard ? 'cursor-pointer' : ''}`
+                                }
                                 onClick={
                                     isTop && !isLastCard
                                         ? swipeCard
@@ -99,12 +103,13 @@ function MemoriesScreen({ onNext }) {
                                 whileTap={{ scale: 0.98 }}
                             >
 
-                                <div className="w-full h-full rounded-sm overflow-hidden shadow-inner border border-slate-100 bg-slate-100">
+                                {/* Auto-fit image area */}
+                                <div className="w-full h-full rounded-sm overflow-hidden shadow-inner border border-slate-100 bg-slate-100 flex items-center justify-center">
 
                                     <img
                                         src={photo}
                                         alt="Memory"
-                                        className="w-full h-full object-cover pointer-events-none"
+                                        className="w-full h-full object-contain"
                                         draggable="false"
                                     />
 
@@ -127,7 +132,6 @@ function MemoriesScreen({ onNext }) {
                     onClick={onNext}
                     text="♡Now Open My Heart♡"
                     animateIcon={false}
-                    //icon={<Mail size={18} />}
                 />
             </motion.div>
 
