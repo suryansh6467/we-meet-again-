@@ -100,7 +100,7 @@ function ThingsToDoScreen({ onNext }) {
                 <Button
                     onClick={onNext}
                     animateIcon={false}
-                    text="See Our Memories"
+                    text="Now See YoutSelf"
                     icon={<Camera size={18} />}
                 />
             </motion.div>
