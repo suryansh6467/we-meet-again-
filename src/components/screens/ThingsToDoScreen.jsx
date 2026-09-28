@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Camera, Heart } from "lucide-react";
 import Button from "../Button";
@@ -25,33 +24,13 @@ const thingsToDo = [
 ];
 
 function ThingsToDoScreen({ onNext }) {
-    const audioRef = useRef(null);
 
-    const handleNext = async () => {
-        try {
-            if (!audioRef.current) return;
-
-            audioRef.current.volume = 0.8;
-            audioRef.current.currentTime = 0;
-
-            await audioRef.current.play();
-
-            onNext();
-        } catch (error) {
-            console.log("Song play error:", error);
-            onNext();
-        }
+    const handleNext = () => {
+        onNext();
     };
 
     return (
         <div className="flex flex-col items-center h-full w-full relative">
-
-            {/* SONG */}
-            <audio
-                ref={audioRef}
-                preload="auto"
-                src="/audio/bg.mp3"
-            />
 
             <motion.div
                 className="text-center z-10 mt-6 md:mt-8 mb-6 shrink-0"
