@@ -125,7 +125,7 @@ function MemoriesScreen({ onNext }) {
             >
                 <Button
                     onClick={onNext}
-                    text="Now Open My Heart"
+                    text="♡Now Open My Heart♡"
                     animateIcon={false}
                     icon={<Mail size={18} />}
                 />
